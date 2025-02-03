@@ -21,10 +21,11 @@ def selected(event):
     print(selection)
 
 city = ["Москва", "Курск", "Курчатов", "Владивосток"]
-label = ttk.Label()
-label.pack(anchor=NW, fill=X, padx=5, pady=5)
+label = ttk.Label(borderwidth=2, relief="solid", padding=8)
+label.pack(anchor=CENTER, fill=X, padx=5, pady=5)
 
 city_var = StringVar(value = city[0])
+label["text"] = f"Температура: {getTemperature(city_var.get())}"
 combobox = ttk.Combobox(textvariable = city_var, values = city, state = "readonly")
 combobox.pack(anchor=CENTER, padx=6, pady=6)
 
