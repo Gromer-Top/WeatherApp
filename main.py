@@ -2,6 +2,7 @@
 import requests
 from tkinter import *
 from tkinter import ttk
+import io
  
 root = Tk()
 root.title("Погода")
@@ -19,8 +20,11 @@ def selected(event):
     city_var.set(selection)
     label["text"] = f"Температура: {getTemperature(city_var.get())}"
     print(selection)
+ 
+with io.open('russiaCities.txt', encoding='utf-8') as f: 
+    lines = f.readlines() 
+    city = [line.strip() for line in lines] # удаляем символы новой строки из каждой строки 
 
-city = ["Москва", "Курск", "Курчатов", "Владивосток"]
 label = ttk.Label(borderwidth=2, relief="solid", padding=8)
 label.pack(anchor=CENTER, fill=X, padx=5, pady=5)
 
