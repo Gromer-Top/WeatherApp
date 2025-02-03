@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import ttk
  
 root = Tk()
-root.title("METANIT.COM")
+root.title("Погода")
 root.geometry("400x400")
 
 def getTemperature(city):
